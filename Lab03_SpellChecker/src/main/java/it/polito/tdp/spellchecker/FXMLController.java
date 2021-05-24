@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.spellchecker.model.Dictionary;
+import it.polito.tdp.spellchecker.model.RichWord;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -102,7 +103,37 @@ public class FXMLController {
     	inputText = inputText.replaceAll("\n", " ");
     	inputText = inputText.replaceAll("[.,\\/#!$%\\^&\\*;:{}=\\-_`~()\\[\\]]", "");
     	
-    	
+    	String array[] = inputText.split(" ");
+    	for(int i=0; i<array.length; i++) {
+    		inputTextList.add(array[i]);
+    	}
+    		
+		//long start = System.nanoTime();
+		List<RichWord> outputTextList;
+		
+		/*if (dichotomicSearch) {
+			outputTextList = dizionario.spellCheckTextDichotomic(inputTextList);
+		} else if (linearSearch) {
+			outputTextList = dizionario.spellCheckTextLinear(inputTextList);
+		} else {*/
+			outputTextList = dizionario.spellCheckText(inputTextList);
+		//}
+		//long end = System.nanoTime();
+
+		int numErrori = 0;
+		StringBuilder richText = new StringBuilder();
+
+		for (RichWord r : outputTextList) {
+			if (!r.isCorrect()) {
+				numErrori++;
+				richText.append(r.getWord() + "\n");
+			}
+		}
+
+		TxtResult.setText(richText.toString());
+		//lblStato.setText("Spell check completed in " + (end - start) / 1E9 + " seconds");
+		//lblErrori.setText("The text contains " + numErrori + " errors");
+		
     	
     }
 
