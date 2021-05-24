@@ -100,7 +100,9 @@ public class FXMLController {
     	}
     	
     	inputText = inputText.replaceAll("\n", " ");
-    	inputText = inputText.replaceAll("h", " ");
+    	inputText = inputText.replaceAll("[.,\\/#!$%\\^&\\*;:{}=\\-_`~()\\[\\]]", "");
+    	
+    	
     	
     }
 
