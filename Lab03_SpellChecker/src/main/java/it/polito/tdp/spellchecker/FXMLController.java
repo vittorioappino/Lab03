@@ -131,7 +131,7 @@ public class FXMLController {
 
 		TxtResult.setText(richText.toString());
 		//lblStato.setText("Spell check completed in " + (end - start) / 1E9 + " seconds");
-		//lblErrori.setText("The text contains " + numErrori + " errors");
+		TxtLabelErrors.setText("The text contains " + numErrori + " errors");
 		
     	
     }

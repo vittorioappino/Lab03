@@ -48,7 +48,7 @@ public class Dictionary {
 		
 		
 		for(String s: inputTextList) {
-			RichWord richword = new RichWord(s);
+			RichWord richword = new RichWord(s.toLowerCase());
 			if(dizionario.contains(s)) {
 				richword.setCorrect(true);
 				
@@ -62,4 +62,26 @@ public class Dictionary {
 		return parole;
 	}
 	
+	public List<RichWord> spellCheckTextLinear (List<String> inputTextList){
+		List <RichWord> parole = new ArrayList<RichWord>();
+		
+		for(String s: inputTextList) {
+			RichWord richword = new RichWord(s.toLowerCase());
+			boolean found = false;
+			for(String word: dizionario) {
+				if(word.equalsIgnoreCase(s)) {
+					found = true;
+					break;
+				}
+			}
+		if(found==true) {
+			richword.setCorrect(true);
+		}else {
+			richword.setCorrect(false);
+			parole.add(richword);
+		}
+		}
+		return parole;
+	}
+		
 }
