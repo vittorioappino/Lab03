@@ -48,7 +48,7 @@ public class FXMLController {
     private Button BtnClearText;
 
     @FXML
-    private Label TxtFieldSpeed;
+    private Label TxtLabelSpeed;
 
 
     @FXML
@@ -107,17 +107,17 @@ public class FXMLController {
     		inputTextList.add(array[i]);
     	}
     		
-		//long start = System.nanoTime();
+		long start = System.nanoTime();
 		List<RichWord> outputTextList;
 		
-		/*if (dichotomicSearch) {
+		if (dichotomicSearch) {
 			outputTextList = dizionario.spellCheckTextDichotomic(inputTextList);
 		} else if (linearSearch) {
 			outputTextList = dizionario.spellCheckTextLinear(inputTextList);
 		} else {*/
 			outputTextList = dizionario.spellCheckText(inputTextList);
-		//}
-		//long end = System.nanoTime();
+		}
+		long end = System.nanoTime();
 
 		int numErrori = 0;
 		StringBuilder richText = new StringBuilder();
@@ -130,7 +130,7 @@ public class FXMLController {
 		}
 
 		TxtResult.setText(richText.toString());
-		//lblStato.setText("Spell check completed in " + (end - start) / 1E9 + " seconds");
+		TxtLabelSpeed.setText("Spell check completed in " + (end - start) / 1E9 + " seconds");
 		TxtLabelErrors.setText("The text contains " + numErrori + " errors");
 		
     	
@@ -138,13 +138,14 @@ public class FXMLController {
 
     @FXML
     void initialize() {
-    	 assert Menu != null : "fx:id=\"Menu\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert TxtArea != null : "fx:id=\"TxtArea\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert BtnSpellCheck != null : "fx:id=\"BtnSpellCheck\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert TxtResult != null : "fx:id=\"TxtResult\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert TxtLabelErrors != null : "fx:id=\"TxtLabelErrors\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert BtnClearText != null : "fx:id=\"BtnClearText\" was not injected: check your FXML file 'Scene.fxml'.";
-         assert TxtFieldSpeed != null : "fx:id=\"TxtFieldSpeed\" was not injected: check your FXML file 'Scene.fxml'.";
+    	assert Menu != null : "fx:id=\"Menu\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert TxtArea != null : "fx:id=\"TxtArea\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert BtnSpellCheck != null : "fx:id=\"BtnSpellCheck\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert TxtResult != null : "fx:id=\"TxtResult\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert TxtLabelErrors != null : "fx:id=\"TxtLabelErrors\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert BtnClearText != null : "fx:id=\"BtnClearText\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert TxtLabelSpeed != null : "fx:id=\"TxtLabelSpeed\" was not injected: check your FXML file 'Scene.fxml'.";
+
 
     }
 

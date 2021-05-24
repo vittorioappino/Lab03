@@ -84,4 +84,39 @@ public class Dictionary {
 		return parole;
 	}
 		
+	public List<RichWord> spellCheckTextDichotomic(List<String> inputTextList) {
+
+		List<RichWord> parole = new ArrayList<RichWord>();
+		//List<RichWord> parole= new LinkedList<RichWord>();
+
+		for (String str : inputTextList) {
+
+			RichWord richWord = new RichWord(str);
+			if (binarySearch(str.toLowerCase()))
+				richWord.setCorrect(true);
+			else
+				richWord.setCorrect(false);
+			parole.add(richWord);
+		}
+
+		return parole;
+	}
+
+	private boolean binarySearch(String stemp) {
+		int inizio = 0;
+		int fine = dizionario.size();
+
+		while (inizio != fine) {
+			int medio = inizio + (fine - inizio) / 2;
+			if (stemp.compareToIgnoreCase(dizionario.get(medio)) == 0) {
+				return true;
+			} else if (stemp.compareToIgnoreCase(dizionario.get(medio)) > 0) {
+				inizio = medio + 1;
+			} else {
+				fine = medio;
+			}
+		}
+
+		return false;
+	}
 }

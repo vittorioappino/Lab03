@@ -74,7 +74,7 @@
       </VBox>
    </center>
    <bottom>
-      <Label fx:id="TxtFieldSpeed" prefHeight="17.0" prefWidth="290.0" text="Spell Check Status:" BorderPane.alignment="CENTER">
+      <Label fx:id="TxtLabelSpeed" prefHeight="17.0" prefWidth="290.0" text="Spell Check Status:" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" />
          </BorderPane.margin>
