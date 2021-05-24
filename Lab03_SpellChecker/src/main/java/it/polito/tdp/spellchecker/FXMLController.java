@@ -138,13 +138,13 @@ public class FXMLController {
 
     @FXML
     void initialize() {
-    	assert Menu != null : "fx:id=\"Menu\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert TxtArea != null : "fx:id=\"TxtArea\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert BtnSpellCheck != null : "fx:id=\"BtnSpellCheck\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert TxtResult != null : "fx:id=\"TxtResult\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert TxtLabelErrors != null : "fx:id=\"TxtLabelErrors\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert BtnClearText != null : "fx:id=\"BtnClearText\" was not injected: check your FXML file 'Scene.fxml'.";
-        assert TxtFieldSpeed != null : "fx:id=\"TxtFieldSpeed\" was not injected: check your FXML file 'Scene.fxml'.";
+    	 assert Menu != null : "fx:id=\"Menu\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert TxtArea != null : "fx:id=\"TxtArea\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert BtnSpellCheck != null : "fx:id=\"BtnSpellCheck\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert TxtResult != null : "fx:id=\"TxtResult\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert TxtLabelErrors != null : "fx:id=\"TxtLabelErrors\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert BtnClearText != null : "fx:id=\"BtnClearText\" was not injected: check your FXML file 'Scene.fxml'.";
+         assert TxtFieldSpeed != null : "fx:id=\"TxtFieldSpeed\" was not injected: check your FXML file 'Scene.fxml'.";
 
     }
 
