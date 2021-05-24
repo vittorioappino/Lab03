@@ -5,6 +5,7 @@
 package it.polito.tdp.spellchecker;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -52,17 +53,55 @@ public class FXMLController {
 
     @FXML
     void doActivation(ActionEvent event) {
-
+    	if(Menu.getValue() !=null) {
+    		
+    		TxtArea.setDisable(false);
+    		TxtResult.setDisable(false);
+    		BtnSpellCheck.setDisable(false);
+    		BtnClearText.setDisable(false);
+    		TxtArea.clear();
+    		TxtResult.clear();
+    	}else {
+    		TxtArea.setDisable(true);
+    		TxtResult.setDisable(true);
+    		BtnSpellCheck.setDisable(true);
+    		BtnClearText.setDisable(true);
+    		TxtArea.setText("Seleziona una lingua");
+    	}
     }
 
     @FXML
     void doClearText(ActionEvent event) {
-
+    	TxtArea.clear();
+		TxtResult.clear();
+		TxtLabelErrors.setText("Number of Errors:");
+		TxtFieldSpeed.setText("Spell check Status:");
     }
 
     @FXML
     void doSpellCheck(ActionEvent event) {
-
+    	TxtResult.clear();
+    	inputTextList = new LinkedList<String>();
+    	
+    	if(Menu.getValue() == null ) {
+    		TxtArea.setText("Seleziona una lingua!");
+    		return;
+    	}
+    	if(!dizionario.loadDictionary(Menu.getValue())) {
+    		TxtArea.setText("Errore nel caricamento del dizionario!");
+    		return;
+    	}
+    	
+    	String inputText = TxtArea.getText();   
+    	
+    	if(inputText.isEmpty()) {
+    		TxtArea.setText("Inserisci del testo da correggerre!");
+    		return;
+    	}
+    	
+    	inputText = inputText.replaceAll("\n", " ");
+    	inputText = inputText.replaceAll("h", " ");
+    	
     }
 
     @FXML
