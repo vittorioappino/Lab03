@@ -150,9 +150,14 @@ public class FXMLController {
 
 	public void setModel(Dictionary model) {
 		
+		TxtArea.setDisable(true);
 		TxtArea.setText("Selezionare una lingua");
 		
+		TxtResult.setDisable(true);;
 		Menu.getItems().addAll("English","Italian");
+		
+		BtnSpellCheck.setDisable(true);
+    	BtnClearText.setDisable(true);
 		
 		this.dizionario=model;
 	}
